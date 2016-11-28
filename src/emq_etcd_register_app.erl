@@ -7,7 +7,6 @@
 
 start(_StartType, _StartArgs) ->
     inets:start(),
-    lhttpc:start(),
     emq_etcd_register_sup:start_link().
 
 stop(_State) ->
