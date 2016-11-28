@@ -1,0 +1,10 @@
+{application,emq_etcd_register,
+  [{description,"emq etcd register"},
+              {vsn,"1.0"},
+              {id,[]},
+              {modules,[emq_etcd_register,emq_etcd_register_app,emq_etcd_register_sup]},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{emq_etcd_register_app,[]}},
+              {env,[]}
+  ]}.
