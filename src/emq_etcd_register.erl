@@ -7,23 +7,24 @@
 start_link() ->
     io:format("start_link()~n"),
 
-    ok,Pid = spawn_link(?MODULE, looop, []),
+    %ok,Pid = spawn_link(?MODULE, loop, []),
+    %{ok, Pid}.
+
+    {ok, Url} = application:get_env(emq_etcd_register, etcd_url),
+    io:format("etcd_url = ~p~n", [Url]),
+
+    {ok, Key} = application:get_env(emq_etcd_register, key),
+    io:format("key = ~p~n", [Key]),
+
+    {ok, Value} = application:get_env(emq_etcd_register, value),
+    io:format("value = ~p~n", [Value]),
+
+    {ok, TTL} = application:get_env(emq_etcd_register, ttl),
+    io:format("ttl = ~p~n", [TTL]),
+
+    ok,Pid = spawn_link(?MODULE, loop, [Url, Key, Value, TTL]),
     {ok, Pid}.
 
-   % {ok, Url} = application:get_env(emq_etcd_register, etcd_url),
-   % io:format("etcd_url = ~p~n", [Url]),
-
-    %{ok, Key} = application:get_env(emq_etcd_register, key),
-    %io:format("key = ~p~n", [Key]),
-
-    %{ok, Value} = application:get_env(emq_etcd_register, value),
-    %io:format("value = ~p~n", [Value]),
-
-    %{ok, TTL} = application:get_env(emq_etcd_register, ttl),
-    %io:format("ttl = ~p~n", [TTL]),
-
-    %ok,Pid = spawn_link(?MODULE, loop, [Url, Key, Value, TTL]),
-    %{ok, Pid}.
 
 looop() ->
 
