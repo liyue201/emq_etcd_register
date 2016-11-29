@@ -1,5 +1,5 @@
 {application,emq_etcd_register,
-  [{description,"emq etcd register"},
+  [{description,"EMQ etcd register"},
               {vsn,"1.0"},
               {id,[]},
               {modules,[emq_etcd_register,emq_etcd_register_app,emq_etcd_register_sup]},
